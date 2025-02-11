@@ -6,7 +6,7 @@ exports.index = async (req, res) => {
   const sampleId = req.query.sample_id;
   try {
     const sensor = await sensorModel.getSensor(sampleId);
-    res.json(sensor);
+    res.json({data: sensor, status: 200});
   } catch (error) {
     res.json({ error: error.message, status: 404 });
   }
